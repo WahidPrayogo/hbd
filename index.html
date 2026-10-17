@@ -322,6 +322,21 @@
     }
   }, 1000);
 
+  function putarAudio() {
+    const audio = document.getElementById('myAudio');
+    if (audio.paused) {
+      audio.play().then(() => {
+        // Jika sukses berputar, hapus semua event listener agar tidak berjalan berulang kali
+        hapusPemicu();
+      }).catch(error => {
+        console.log("Autoplay belum diizinkan oleh browser:", error);
+      });
+    }
+  }
+  window.addEventListener('click', putarAudio);
+  window.addEventListener('touchstart', putarAudio);
+  window.addEventListener('scroll', putarAudio);
+  
   window.addEventListener('click', function() {
     const audio = document.getElementById('myAudio');
     // Cek apakah audio sudah berputar, jika belum maka putar
