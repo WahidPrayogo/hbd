@@ -241,7 +241,7 @@
 </style>
 </head>
 <body>
-<audio id="bgm" src="bgm.mp3" autoplay loop muted preload="auto"></audio><button class="sound" id="sound" type="button" aria-label="Nyalakan atau matikan musik">🔇</button><header>
+<audio id="bgm" src="bgm.mp3" autoplay muted controls loop preload="auto"></audio><button class="sound" id="sound" type="button" aria-label="Nyalakan atau matikan musik">🔇</button><header>
   <h1>Selamat Ulang Tahun, <br><span id="nama">Ajunda Luthfiadina</span>!</h1>
   <p>Hari ini adalah harimu. Semoga setiap detiknya dipenuhi kebahagiaan dan cerita baik.</p>
   <div class="doa-cycle" id="cycle" aria-live="polite"></div>
@@ -321,6 +321,16 @@
       document.body.classList.add("revealed");
     }
   }, 1000);
+
+  window.addEventListener('click', function() {
+    const audio = document.getElementById('myAudio');
+    // Cek apakah audio sudah berputar, jika belum maka putar
+    if (audio.paused) {
+      audio.play().catch(error => {
+        console.log("Autoplay diblokir oleh browser:", error);
+      });
+    }
+  }, { once: true });
 </script>
 </body>
 </html>
