@@ -337,15 +337,15 @@
   window.addEventListener('touchstart', putarAudio);
   window.addEventListener('scroll', putarAudio);
   
-  window.addEventListener('click', function() {
-    const audio = document.getElementById('myAudio');
-    // Cek apakah audio sudah berputar, jika belum maka putar
-    if (audio.paused) {
-      audio.play().catch(error => {
-        console.log("Autoplay diblokir oleh browser:", error);
-      });
-    }
-  }, { once: true });
+  // window.addEventListener('click', function() {
+  //   const audio = document.getElementById('myAudio');
+  //   // Cek apakah audio sudah berputar, jika belum maka putar
+  //   if (audio.paused) {
+  //     audio.play().catch(error => {
+  //       console.log("Autoplay diblokir oleh browser:", error);
+  //     });
+  //   }
+  // }, { once: true });
 </script>
 </body>
 </html>
