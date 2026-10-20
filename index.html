@@ -10,13 +10,21 @@
 <link href="https://googleapis.com" rel="stylesheet">
 <style>
   :root {
-     --night: #14102b;
+     /* --night: #14102b;
     --dusk: #2a2150;
     --flame: #ffb547;
     --wax: #f6e7d0;
     --rose: #e8798b;
     --text: #f7c577;
-    --muted: #b9aed6;
+    --muted: #b9aed6; */
+
+    --night: #FFF8F0;       /* cream (latar) */    
+    --pink: #E8B9B7;        /* pink dusty (aksen) */    
+    --brown: #70464E;       /* cokelat tua (teks) */    
+    --ink: #28252A;         /* hampir hitam (teks di atas pink) */    
+    --text: #70464E;    
+    --muted: rgba(112,70,78,.78);
+    
     --zone: 118px;          /* ruang di bawah gambar untuk judul + countdown / tombol Click me */
     --ring: 64px;
   }
@@ -24,10 +32,9 @@
   html { height: 100%; }
   body {
     font-family: "Figtree", system-ui, sans-serif;
-    color: var(--text);
-    background:
-      radial-gradient(60% 50% at 50% 55%, rgba(255,181,71,.16), transparent 70%),
-      radial-gradient(120% 80% at 50% 120%, var(--dusk), var(--night) 60%);
+    color: var(--text);    background:      
+      radial-gradient(60% 50% at 50% 52%, rgba(232,185,183,.5), transparent 70%),      
+      radial-gradient(120% 80% at 50% 120%, rgba(232,185,183,.55), var(--night) 60%);    
     background-color: var(--night);
     height: 100vh;
     height: 100dvh;
@@ -50,7 +57,7 @@
   header > p {
     margin: 6px auto 0;
     font-family: "Playfair Display", Georgia, serif;
-    color: #ffffff;
+    color: var(--muted);
     font-size: clamp(.9rem, 1.7vw, 1.05rem);
     max-width: 40ch;
     line-height: 1.45;
@@ -66,7 +73,7 @@
     font-family: "Playfair Display", Georgia, serif;
     font-style: italic;
     font-weight: 500;
-    color: #ffffff;
+    /* color: #ffffff; */
     font-size: 1.05rem;
     line-height: 1.4;
   }
@@ -94,7 +101,7 @@
     font-family: "Playfair Display", Georgia, serif;
     font-style: italic;
     font-weight: 500;
-    color: #ffffff;
+    color: var(--brown);
     font-size: clamp(1rem, 1.9vw, 1.3rem);
     line-height: 1.5;
     display: grid;
@@ -122,7 +129,7 @@
     aspect-ratio: 1036 / 1251;
     height: 46dvh;
     height: min(calc(100cqh - var(--zone)), calc(100cqw / 0.8281));
-    filter: drop-shadow(0 12px 40px rgba(255,181,71,.22));
+    filter: drop-shadow(0 0 1.5px rgba(112,70,78,.55)) drop-shadow(0 14px 30px rgba(112,70,78,.28));
     animation: float 5s ease-in-out infinite;
   }
   .char img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; transition: opacity .8s ease; }
@@ -155,18 +162,18 @@
     animation: bounce 1.1s ease-in-out infinite;
     z-index: 2;
   }
-  .revealed .cta { display: flex; }
-  .cta svg { width: 40px; height: 48px; filter: drop-shadow(0 4px 10px rgba(255,181,71,.55)); }
-  .cta b {
-    font-family: "Playfair Display", Georgia, serif;
-    font-size: 1.15rem;
-    color: var(--night);
-    background: var(--flame);
-    padding: 5px 16px;
-    border-radius: 999px;
-    box-shadow: 0 6px 20px rgba(255,181,71,.4);
-    white-space: nowrap;
-  }
+  .revealed .cta { display: flex; }  
+  .cta svg { width: 40px; height: 48px; filter: drop-shadow(0 4px 8px rgba(112,70,78,.3)); }  
+  .cta b {    
+    font-family: "Fraunces", Georgia, serif;    
+    font-size: 1.15rem;    
+    color: var(--ink);    
+    background: var(--pink);    
+    border: 2px solid var(--brown);    
+    padding: 4px 16px;    
+    border-radius: 999px;    
+    box-shadow: 0 6px 18px rgba(112,70,78,.3);    
+                                                                                                                                         white-space: nowrap;  }
   @keyframes bounce { 0%,100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, -8px); } }
 
   .below {
@@ -182,16 +189,16 @@
     font-weight: 700;
     font-size: clamp(1.4rem, 3.2vw, 2rem);
     line-height: 1.1;
-    color: var(--flame);
-    text-shadow: 0 0 28px rgba(255,181,71,.45);
+    color: var(--brown);
+    text-shadow: 0 2px 0 rgba(232,185,183,.95);
   }
   .count { margin-top: 8px; }
   .ring { position: relative; width: var(--ring); height: var(--ring); }
   .ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
   .ring circle { fill: none; stroke-width: 5; }
-  .ring .track { stroke: rgba(246,231,208,.15); }
+  .ring .track { stroke: rgba(112,70,78,.15); }
   .ring .bar {
-    stroke: var(--flame);
+    stroke: var(--brown);
     stroke-linecap: round;
     stroke-dasharray: 238.76;
     stroke-dashoffset: 0;
